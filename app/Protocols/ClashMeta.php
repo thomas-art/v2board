@@ -185,10 +185,14 @@ class ClashMeta
         $array['type'] = 'vless';
         $array['server'] = $server['host'];
         $array['port'] = $server['port'];
-        $array['password'] = $password;
+        $array['uuid'] = $password;
         $array['udp'] = true;
-        if (!empty($server['server_name'])) $array['sni'] = $server['server_name'];
-        if (!empty($server['allow_insecure'])) $array['skip-cert-verify'] = ($server['allow_insecure'] ? true : false);
+        $array['client-fingerprint'] = 'random';
+        $array['tls'] = true;
+        $array['tfo'] = false;
+        $array['servername'] = 'cloudflare.com';
+        $array['flow'] = 'xtls-rprx-vision';
+        $array['skip-cert-verify'] = true;
         return $array;
     }
 
